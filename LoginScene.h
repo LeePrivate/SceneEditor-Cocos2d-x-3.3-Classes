@@ -27,6 +27,9 @@ public:
 	CREATE_FUNC(LoginMenu);
 
 protected:
+	//创建通用按钮;
+	cocos2d::ui::Button* createNormalButton(const std::string );
+
 	//Start 按钮;
 	cocos2d::ui::Button* createStartButton();
 	//Fun 按钮;

@@ -20,6 +20,18 @@ Scene* HelloWorld::createScene()
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
+	// 1. super init first
+	if (!Layer::init())
+	{
+		return false;
+	}
+	btn = ui::Button::create("UIButton\\BlueButton.png");
+	addChild(btn);
+	btn->setPosition(Vec2(200.0, 200.0));
+	btn->addTouchEventListener(CC_CALLBACK_2(HelloWorld::BtnShowHeightPersonTouchEvent, this));
+	btn->setPressedActionEnabled(true);
+
+
    /* //////////////////////////////
     // 1. super init first
     if ( !Layer::init() )
@@ -74,7 +86,7 @@ bool HelloWorld::init()
 
 	//这以下是改变过的代码;
 	//记住初始化父类;
-	if (!Layer::init())
+	/*if (!Layer::init())
 	{
 		return false;
 	}
@@ -108,7 +120,7 @@ bool HelloWorld::init()
 	// 设置精灵坐标;
 	sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 
-	pNode->addChild(sprite, 0);
+	pNode->addChild(sprite, 0);*/
 
 
 
@@ -128,4 +140,12 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
+}
+
+void HelloWorld::BtnShowHeightPersonTouchEvent(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		int a = 0;
+	}
 }

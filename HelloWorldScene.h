@@ -2,6 +2,8 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "cocos-ext.h"
+#include "ui/CocosGUI.h"
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -17,6 +19,9 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+
+	cocos2d::ui::Button* btn;
+	void BtnShowHeightPersonTouchEvent(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
