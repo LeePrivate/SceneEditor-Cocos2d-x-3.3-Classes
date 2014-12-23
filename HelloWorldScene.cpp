@@ -111,6 +111,7 @@ bool HelloWorld::init()
 	pNode->addChild(sprite, 0);
 
 
+
     return true;
 }
 

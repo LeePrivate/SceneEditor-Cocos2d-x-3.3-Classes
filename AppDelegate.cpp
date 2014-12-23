@@ -28,10 +28,21 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
         glview = GLViewImpl::create("Scene Editor");
+		
+		
         director->setOpenGLView(glview);
     }
+	/*屏幕适配;
+	（1）kResolutionNoBorder：超出屏幕的部分会被裁剪，两侧没有黑边，铺满屏幕，按图片原始比例显示，图片不变形(适配宽度!)。
+	（2）kResolutionShowAll：整个游戏界面是可见的，会按原始比例进行缩放，图片不变形，但两侧可能会留有黑边，不铺满屏幕。
+	（3）kResolutionExactFit：整个游戏界面是可见的，图片可能会进行拉伸或者压缩处理，铺满屏幕，图片会变形。
+	 ( 4 )kResolutionFixedHeight (适配高,不变形);
+     ( 5 )kResolutionFixedWidth(适配宽,不变形);*/
+	//glview->setDesignResolutionSize(1024, 768, kResolutionNoBorder);
 
-	const Size& winSize = director->getWinSize();
+	//得到屏幕尺寸;
+	//const Size& winSize = director->getWinSize();
+	
 
     // turn on display FPS
     director->setDisplayStats(true);

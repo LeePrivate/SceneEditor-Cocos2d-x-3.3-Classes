@@ -1,6 +1,7 @@
 #pragma once
 
-#include "cocos2d.h"
+#include "Config.h"
+
 
 class LoginScene : public cocos2d::Layer
 {
@@ -17,3 +18,19 @@ public:
 	CREATE_FUNC(LoginScene);
 };
 
+class LoginMenu : public  cocos2d::Layer
+{
+public:
+	//重写inti();
+	virtual bool init() override;
+
+	CREATE_FUNC(LoginMenu);
+
+protected:
+	//Start 按钮;
+	cocos2d::ui::Button* createStartButton();
+	//Fun 按钮;
+	cocos2d::ui::Button* createFunButton();
+	//Other 按钮;
+	cocos2d::ui::Button* createOtherButton();
+};
