@@ -1,5 +1,8 @@
 #include "LoginScene.h"
 #include "Button/CommonButton.h"
+#include <iostream>
+#include "HelloWorldScene.h"
+#include "MajorScene.h"
 
 USING_NS_CC;
 
@@ -93,6 +96,9 @@ cocos2d::ui::Button* LoginMenu::createStartButton()
 	//设置字体颜色;
 	pStartButton->setTitleColor(Color3B::BLACK);
 
+	pStartButton->addTouchEventListener(CC_CALLBACK_2(LoginMenu::ChangeScene, this));
+		
+
 	//设置button位置;
 	//Size size = Director::getInstance()->getVisibleSize();
 	//pStartButton->setPosition(Vec2(size.width / 2, size.height / 2 + 80));
@@ -155,4 +161,14 @@ bool LoginMenu::init()
 	addChild(otherBtn);
 
 	return true;
+}
+
+void LoginMenu::ChangeScene(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	/*清空缓存;*/
+	Director::getInstance()->purgeCachedData();
+	/*创建新的场景;*/
+	Scene* pScene = MajorScene::createScene();
+	/*用新场景替换旧场景,如果为了提高来回切换场景的效率可以使用 pushScene 或是 popScene;*/
+	Director::getInstance()->replaceScene(pScene);
 }

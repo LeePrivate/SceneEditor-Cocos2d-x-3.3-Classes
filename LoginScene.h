@@ -27,8 +27,6 @@ public:
 	CREATE_FUNC(LoginMenu);
 
 protected:
-	//创建通用按钮;
-	cocos2d::ui::Button* createNormalButton(const std::string );
 
 	//Start 按钮;
 	cocos2d::ui::Button* createStartButton();
@@ -36,4 +34,6 @@ protected:
 	cocos2d::ui::Button* createFunButton();
 	//Other 按钮;
 	cocos2d::ui::Button* createOtherButton();
+
+	void ChangeScene(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 };
